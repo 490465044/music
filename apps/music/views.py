@@ -8,6 +8,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from json import dumps
+from main.settings import STATIC_URL as static_url
 # 导入静态配置
 from main.settings import STATIC_URL as url, ACCESS_KEY as access_key, SECRET_KEY as secret_key, BUCKET_NAME as bucket_name
 # 导入七牛
@@ -33,3 +34,11 @@ def upload_album(request):
         'static': url
     }
     return render(request, 'upload_album.html', context=context)
+
+# 音乐页面
+def music(request):
+    context={
+        'url': 'music',
+        'static': static_url
+    }
+    return render(request, 'music.html', context)

@@ -25,14 +25,15 @@ from django.contrib import admin
 
 from apps.account.views import register, login
 from apps.basics.views import index, form
-from apps.music.views import qiniu_token, upload_album
+from apps.music.views import qiniu_token, upload_album,music
 
 urlpatterns = [
     # //基础部分
-    # //页面部分
     url(r'^admin/', admin.site.urls),
     url(r'^form/$', form, name='form'),
-    url(r'^$', index, name='index'),
+    # //页面部分
+    url(r'^index/$', index, name='index'),
+    url(r'^music', music, name='music'),
     # 登陆注册
     url(r'^login/$', login, name = 'login'),
     url(r'^register/$', register, name = 'register'),

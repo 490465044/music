@@ -15,8 +15,8 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="../">首页 <span class="sr-only">(current)</span></a></li>
-                    <li><a href="/construction">音乐</a></li>
+                    <li {% if url == 'index' %}class="active"{% endif %}><a href="/">首页 <span class="sr-only">(current)</span></a></li>
+                    <li {% if url == 'music' %}class="active"{% endif %}><a href="/music">音乐</a></li>
                     <li><a href="/construction">专辑</a></li>
                     <li><a href="/construction">音乐人</a></li>
                     <li><a href="/construction">排行</a></li>

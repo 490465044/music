@@ -44,7 +44,8 @@ def form(request):
 
 def index(request):
     content={
-         'static': static_url,
+        'url': 'index',
+        'static': static_url,
         'album' : Album.objects.filter(Show=True).order_by('-CreatedTime')[:24]
     }
     # // album 专辑信息
