@@ -1,0 +1,23 @@
+#  _*_coding:utf-8 _*_
+# NAME = 'text'
+# USER = 'W.Tj'
+# EMAIL = 'wangtengjiao1@gmail.com'
+# TIME = '2017/2/14 19:01'
+# ____________________分割线___________________
+
+django版本为1.11请使用pip固定版本安装:
+pip install django==1.11
+
+虚拟环境如果安装mysqldb驱动产生错误参照下列方式解决,进入work工作环境中依次执行：
+1， sudo apt-get install python-dev
+2， sudo apt-get install libmysqlclient-dev
+3， pip install mysql-python
+
+如果正式环境直接执行：
+sudo apt-get install python-mysqldb
+
+提示Pillow 错误，安装
+sudo apt-get install python-imaging
+如果是虚拟环境请安装：
+
+*需要安装七牛云

@@ -1,0 +1,139 @@
+{% extends 'common/basic.html' %}
+{% load staticfiles %}
+{% block title %}anoldcd | 让音乐进入生活{{ album.Name }}{% endblock %}
+{% block main %}
+    <div id="carousel-example-captions" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            {% for foo in slide %}
+                <li data-target="#carousel-example-captions" data-slide-to="{{ forloop.counter0 }}" class="{% if forloop.first %}active{% endif %}"></li>
+            {% endfor %}
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            {% for foo in slide %}
+                <div class="item {% if forloop.first %}active{% endif %}">
+                    <a href="{{ foo.Url }}">
+                        <img data-src="holder.js/1920x590/auto/" alt="{{ foo.Name }} {{ foo.Title }}" src="//anoldcd.qiniudn.com/media/{{ foo.ImgUrl }}" data-holder-rendered="true">
+                    </a>
+                    <div class="carousel-caption">
+                        <h3>{{ foo.Name }}</h3>
+                        <p>{{ foo.Title }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <a class="left carousel-control" href="#carousel-example-captions" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">上一页</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-captions" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">下一页</span>
+        </a>
+    </div>
+    <div class="high-floor"></div>
+    <div id="main" class="container basics">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-12">
+                        <a href="#" title="你的王冠">
+                            <img src="//anoldcd.oss-cn-shanghai.aliyuncs.com/img/ad001.jpg" alt="你的王冠" />
+                        </a>
+                    </div>
+                    <div class="col-md-12 down">
+                        <h5>
+                            <strong class="bigtext">猜你喜欢</strong>
+                            <span><a class="more" href="#">更多</a></span>
+                        </h5>
+                    </div>
+                    {% for foo in recommend %}
+                        <div class="col-md-3 up">
+                            <a href="{{ foo.Url }}">
+                                <img height="165px" width="165px" src="//anoldcd.qiniudn.com/media/{{ foo.ImgUrl }}" />
+                            </a>
+                            <div class="col-md-12 bg">
+                                <a class="title-name" style="height: 34px;" href="{{ foo.Url }}">{{ foo.NameLong|truncatechars:22 }}</a>
+                                <a class="title-name" href="{{ foo.Url }}">{{ foo.Name|truncatechars:22  }}</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-12">
+                        <a href="#"><img src="//anoldcd.oss-cn-shanghai.aliyuncs.com/img/ad002.jpg" /></a>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-md-12 down">
+                                <h5>
+                                    <strong class="bigtext">排行</strong>
+                                    <span><a class="more" href="#">更多</a></span>
+                                </h5>
+                            </div>
+                            {% for foo in ranking %}
+                                <div class="col-md-12 up">
+                                    <a href="#">
+                                        <img class="ranking-img" width="70px" height="70px" src="//anoldcd.qiniudn.com/media/{{ foo.ImgUrl }}"/>
+                                        <p class="title-name ranking-p" title="{{ foo.Name }}">{{ foo.LongName | truncatechars:"35" }}</p>
+                                        <span class="pull-right">{{ foo.PlayTimes }}℃</span>
+                                    </a>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="row">
+                            <div class="col-md-12 down">
+                                <h5>
+                                    <strong class="bigtext">音乐人</strong>
+                                    <span><a class="more" href="/radio/play/id/2">更多</a></span>
+                                </h5>
+                            </div>
+                            {% for foo in musician %}
+                            <div class="col-md-12 center-version up">
+                                <a href="#">
+                                    <img alt="image" class="img-circle" src="//anoldcd.qiniudn.com/media/{{ foo.ImgUrl }}">
+                                    <div class="font-bold"><span>{{ foo.Name }}</span></div>
+                                </a>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-12 down">
+                        <h5>
+                            <strong class="bigtext">专辑</strong>
+                            <span><a class="more" href="#">更多</a></span>
+                        </h5>
+                    </div>
+                    {% for foo in album %}
+                        <div class="col-md-2 up">
+                            <a href="album/{{ foo.ID }}">
+                                <img height="165px" width="165px" src="//anoldcd.qiniudn.com/media/{{ foo.ImgUrl }}" />
+                            </a>
+                            <div class="col-md-12 bg">
+                                <a class="title-name" style="height: 34px; " title="{{ foo.LongName }}" href="album/{{ foo.ID }}">{{ foo.LongName | truncatechars:"22" }}</a>
+                                <a class="title-name" title="{{ foo.Name }}" href="album/{{ foo.ID }}">{{ foo.Name | truncatechars:"13" }}</a>
+                                <ul class="status">
+                                    <li><span class="glyphicon glyphicon-headphones" aria-hidden='true'></span><br>
+                                        <h5>{{ foo.AccessAmount }}</h5></li>
+                                    <li><span class="glyphicon glyphicon-star-empty" aria-hidden='true'></span><br>
+                                        <h5>{{ foo.CollectionTimes }}</h5></li>
+                                    <li><span class="glyphicon glyphicon-thumbs-up" aria-hidden='true'></span><br>
+                                        <h5>{{ foo.CommentNumber }}</h5></li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="high-floor"></div>
+{% endblock %}

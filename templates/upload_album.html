@@ -1,0 +1,76 @@
+{% extends 'common/basic.html' %}
+{% load staticfiles %}
+{% block title %}anoldcd | 让音乐进入生活{{ album.Name }}{% endblock %}
+{% block additional %}
+<link rel="stylesheet" href="{{ static }}css/upload_album.css">
+<link rel="stylesheet" href="{{ static }}css/highlight.css">
+{% endblock %}
+
+
+{% block main %}
+<div class="high-floor"></div>
+<div class="container basics">
+    <div class="row">
+        <input type="hidden" id="domain" value="http://om4i1voey.bkt.clouddn.com/">
+        <input type="hidden" id="uptoken_url" value="/get/qiniu_token">
+        <input type="hidden" id="loading" value="{{ static }}img/loading.gif">
+        <ul class="tip col-md-12 text-mute">
+            <li>
+                <small>Html5模式大于4M文件采用分块上传。</small>
+            </li>
+            <li>
+                <small>上传图片可查看处理效果。</small>
+            </li>
+            <li>
+                <small>本示功能最大上传文件100M。</small>
+            </li>
+        </ul>
+        <div class="col-md-12">
+            <div id="container" style="position: relative;">
+                <a class="btn btn-default btn-lg " id="pickfiles"
+                   href="http://jssdk.demo.qiniu.io/?ref=developer.qiniu.com#" style="position: relative; z-index: 1;">
+                    <i class="glyphicon glyphicon-plus"></i>
+                    <span>选择文件</span>
+                </a>
+                <div id="html5_1bf3mdk8t1okkedh199d18t91833_container" class="moxie-shim moxie-shim-html5"
+                     style="position: absolute; top: 0px; left: 0px; width: 171px; height: 46px; overflow: hidden; z-index: 0;">
+                    <input id="html5_1bf3mdk8t1okkedh199d18t91833" type="file"
+                           style="font-size: 999px; opacity: 0; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;"
+                           multiple="" accept=""></div>
+            </div>
+        </div>
+        <div style="display:none" id="success" class="col-md-12">
+            <div class="alert-success">
+                队列全部文件处理完毕
+            </div>
+        </div>
+        <div class="col-md-12 ">
+            <table class="table table-striped table-hover text-left" style="margin-top:40px;display:none">
+                <thead>
+                <tr>
+                    <th class="col-md-4">Filename</th>
+                    <th class="col-md-2">Size</th>
+                    <th class="col-md-6">Detail</th>
+                </tr>
+                </thead>
+                <tbody id="fsUploadProgress">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="high-floor"></div>
+{% endblock %}
+{% block footadditional %}
+<script type="text/javascript" src="{{ static }}js/moxie.js"></script>
+<script type="text/javascript" src="{{ static }}js/plupload.dev.js"></script>
+<!-- <script type="text/javascript" src="bower_components/plupload/js/plupload.full.min.js"></script> -->
+<script type="text/javascript" src="{{ static }}js/zh_CN.js"></script>
+<script type="text/javascript" src="{{ static }}js/ui.js"></script>
+<script type="text/javascript" src="{{ static }}js/qiniu.js"></script>
+<script type="text/javascript" src="{{ static }}js/highlight.js"></script>
+<script type="text/javascript" src="{{ static }}js/qiniu_main.js"></script>
+<script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+</script>
+{% endblock %}

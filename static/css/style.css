@@ -1,0 +1,206 @@
+/*通用部分*/
+
+
+/*层高*/
+<<<<<<< HEAD
+/*层高*/
+=======
+>>>>>>> remotes/origin/memories
+
+.high-floor {
+	height: 20px;
+	margin: auto;
+}
+
+
+/*盒子*/
+
+.ibox {
+	clear: both;
+	margin-bottom: 25px;
+	margin-top: 0;
+	padding: 0;
+}
+
+.ibox-content {
+	clear: both;
+}
+
+
+/*居中显示*/
+
+.center-version {}
+
+.center-version {
+	/* border: 1px solid #e7eaec; */
+	/* padding: 0; */
+}
+
+.center-version > a {
+	display: block;
+	text-align: center;
+}
+
+.center-version > a img {
+	width: 50px;
+	height: 50px;
+}
+
+.center-version address {
+	margin-bottom: 0;
+}
+
+
+/*右下角显示*/
+
+.pull-right {}
+
+
+/*背景*/
+
+.basics {
+	background-color: #fff;
+	padding-bottom: 15px;
+	padding-top: 15px;
+}
+
+
+/*上下高补全*/
+
+.up {
+	margin-top: 15px;
+}
+
+.down {
+	margin-bottom: -15px;
+}
+
+
+/*标题部分*/
+
+.bigtext {
+	font-weight: normal;
+	font-size: 16px;
+}
+
+.more {
+	font-size: 12px;
+	color: #e8380d;
+}
+
+
+/*卡片部分*/
+
+.bg {
+	background-color: #ebebeb;
+	padding-bottom: 5px;
+}
+
+.title-name {
+	display: block;
+	margin-top: 5px;
+	margin-left: -5px;
+	margin-left: -5px;
+	font-size: 12px;
+	line-height: 18px;
+	color: #4a4a4a;
+	overflow: hidden;
+}
+
+.status {
+	display: block;
+	margin-top: 10px;
+	height: auto;
+	line-height: 14px;
+	padding-left: 0px;
+	margin-left: -15px;
+	margin-left: -15px;
+}
+
+.status>li {
+	display: inline-block;
+	list-style-type: none;
+	float: left;
+	width: 49px;
+	color: #6b6b6b;
+	text-align: center;
+	font-size: 14px;
+	margin: 0;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+
+/*页脚部分*/
+
+.foot-ul {
+	float: left;
+}
+
+.foot-ul>li {
+	list-style-type: none;
+	line-height: 30px;
+}
+
+.foot-friendship {
+	border-top: 1px dashed #999;
+	border-bottom: 1px dashed #999;
+}
+
+.foot-friendship>ul {
+	padding: 0;
+}
+
+.foot-friendship>ul>li {
+	list-style-type: none;
+	float: left;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	padding: 0px 15px;
+	border-left: 1px solid #999;
+	line-height: 5px;
+}
+
+.foot-height {
+	height: 50px;
+}
+
+.foot-font {
+	color: #999;
+}
+
+.foot-right {
+	text-align: right;
+}
+
+
+/*首页*/
+
+
+/*排行*/
+
+.ranking-img {
+	float: left;
+}
+
+.ranking-p {
+	float: left;
+	width: 139px;
+	margin: 0 0 0 10px;
+	height: 51px;
+}
+
+
+/*专辑*/
+
+.lightBoxGallery img {
+	margin: 5px;
+}
+
+.play {
+	font-size: 30px;
+	margin: 15px;
+	color: 666px;
+	float: left;
+}

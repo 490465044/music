@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="06431fe9-25c8-4baa-ba69-61686ba92c67" name="开发机" url="http://7.0.0.89">
+        <fileTransfer host="7.0.0.89" port="22" rootFolder="/home/neo" accessType="SFTP" password="dfdddf9bdf93df92df92df9adf9bdf9bdf98" username="neo">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
