@@ -6,6 +6,9 @@
 # ____________________分割线___________________
 from django.shortcuts import render
 from main.settings import STATIC_URL as static_url
+from forms import User as FormsUser
+from models import User as DbUser
+from .control import Validator
 from lib.form.register.main import addAccount
 # Create your views here.
 
@@ -35,21 +38,29 @@ def register(request):
     :param request: 提交内容
     :return:
     """
-    from forms import User as FormsUser
-    from models import User as DbUser
     if request.method == 'POST':
-        form = FormsUser(request.POST)
-        print request.POST['name']
-        if  not DbUser.objects.get( NameID=request.POST['name']):
-            ready = DbUser(NameID=request.POST['name'],Password=request.POST['password'],Email=request.POST['email'])
-            ready.save()
-        else:
+        # 获取表单
+        forms = FormsUser(request.POST)
+        # 获取输入内容
+
+        name = request.POST['name']
+        password = request.POST['password']
+        email = request.POST['email']
+
+        # 实例化验证器
+        validator = Validator(name=name, password=password)
+        if not forms.is_valid():
+            print '输入不合法'
+        elif validator.existence():
             print '账号已存在'
-    else:
-        form = FormsUser()
+        else:
+            # 密码加密
+            password = password
+            ready = DbUser(NameID=name, Password=password, Email=email)
+            ready.save()
+            print '保存成功'
     content={
         'url':'user',
-        'form':form,
         'static': static_url
     }
     return render(request, 'register.html', context=content)

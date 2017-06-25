@@ -27,16 +27,17 @@ from apps.account.views import register, login
 from apps.basics.views import index, form
 from apps.music.views import qiniu_token, upload_album,music
 
-urlpatterns = [
+urlpatterns = {
     # //基础部分
     url(r'^admin/', admin.site.urls),
     url(r'^form/$', form, name='form'),
     # //页面部分
     url(r'^index/$', index, name='index'),
-    url(r'^music', music, name='music'),
+    url(r'^$', index, name='index'),
+    url(r'^music/$', music, name='music'),
     # 登陆注册
-    url(r'^login/$', login, name = 'login'),
-    url(r'^register/$', register, name = 'register'),
+    url(r'^login/$', login, name='login'),
+    url(r'^register/$', register, name='register'),
 
     # //基础功能部分
     # //上传表单
@@ -45,4 +46,4 @@ urlpatterns = [
     # 页面获取tonken
     url(r'^get/qiniu_token', qiniu_token, name='qiniu_token'),
 
-]
+}

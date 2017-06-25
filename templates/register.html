@@ -2,47 +2,55 @@
 {% load staticfiles %}
 {% block title %}anoldcd | 让音乐进入生活{{ album.Name }}{% endblock %}
 {% block main %}
-    <form action="/register/" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="提交">
-</form>
     <div id="main" class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default" style="margin-top: 20px">
                     <div class="panel-heading">账户注册</div>
                     <div class="panel-body">
-                        <form action="/register" method="post" role="form">
+                        <form action="/register/" method="post" role="form">
                             {% csrf_token %}
                             <div class="form-group">
                                 <label for="username">用户名:</label>
-                                <input id="username" type="text" class="form-control" placeholder="请输用户名">
+                                <input id="username" id ="username" name="name" type="text" class="form-control" placeholder="请输用户名">
                             </div>
                             <div class="form-group">
                                 <label for="password">密码:</label>
                                 <input type="password" id="password" class="form-control" placeholder="请输入密码">
                             </div>
                             <div class="form-group">
-                                <label for="password">重复密码:</label>
-                                <input type="password" id="repeatPassword" class="form-control" placeholder="请输入密码">
+                                <label for="repeatPassword">重复密码:</label>
+                                <input type="Password" id="repeatPassword" name="password" class="form-control" placeholder="请输入密码">
                             </div>
                             <div class="form-group">
                                 <label for="password">电子邮件:</label>
-                                <input type="email" id="repeatPassword" class="form-control" placeholder="电子邮件">
+                                <input type="email" id="email" name="email" class="form-control" placeholder="电子邮件">
                             </div>
                             <div class="checkbox">
                                 <label>
                                     <input type="checkbox" id="checkbox" class="checkbox">记住密码
                                 </label>
                             </div>
-                            <button class="btn btn-block btn-primary">
+                            <button class="btn btn-block btn-primary" id="sum">
                                 注册
                             </button>
+                            <p>result: <span id='result'></span></p>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+<script>
+    $(document).ready(function(){
+        $("#sum").click(function(){
+            var username = $("#username").val();
+            var password = $("#repeatPassword").val();
+            var email = $("#email").val();
+            $.get("/register/",{'name':username,'password':password, 'email':email}, function(ret){
+                $('#result').html(ret)
+            })
+        });
+    });
+</script>
 {% endblock %}
